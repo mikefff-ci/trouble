@@ -1,14 +1,25 @@
 version: 2.1
 
 jobs:
-  test:
+  main:
     docker:
       - image: circleci/python:3.7
     steps:
       - run: echo $(($TEST_ONE == "testing"))
+  forked:
+    docker:
+      - image: circleci/python:3.7
+    steps:
+      - run: echo "forked"
 
 workflows:
   workflow:
     jobs:
-      - test:
+      - main:
           context: org-test
+          filters:
+            branches:
+              only:
+                - master
+                - /internal\/.*/
+      - forked
