@@ -1,10 +1,5 @@
 Troublddd
- 
- 
- 
- sadfasdf
- 
- 
+ asdfasdf
  
  
  sadfasd
